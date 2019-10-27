@@ -1,0 +1,225 @@
+<form class="form-horizontal">
+	<fieldset>
+		<legend>Offsets</legend>
+
+
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3"></div>
+            <div class="span2"><h4>X</h4></div>
+            <div class="span2"><h4>Y</h4></div>
+            <div class="span2"><h4>Z</h4></div>
+        </div>
+
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('Tool 1:') }}</label>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" value="0" disabled="disabled" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" value="0" disabled="disabled" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" value="0" disabled="disabled"/>
+				<span class="add-on">mm</span>
+            </div>
+        </div>
+
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('Tool 2:') }}</label>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t1_offset.x" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t1_offset.y" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t1_offset.z" />
+				<span class="add-on">mm</span>
+            </div>
+        </div>
+
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('Tool 3:') }}</label>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t2_offset.x" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t2_offset.y" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t2_offset.z" />
+				<span class="add-on">mm</span>
+            </div>
+        </div>
+
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('Tool 4:') }}</label>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t3_offset.x" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t3_offset.y" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.t3_offset.z" />
+				<span class="add-on">mm</span>
+            </div>
+        </div>
+	</fieldset>
+
+	<fieldset>
+		<legend>Parking Settings</legend>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('Safe Position Y:') }}</label>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.parking.safe_y" />
+                <span class="add-on">mm</span>
+            </div>
+        </div>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('Position Y:') }}</label>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.parking.y" />
+                <span class="add-on">mm</span>
+            </div>
+        </div>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('Use Sensors:') }}</label>
+            </div>
+            <div class="input span2">
+				<input type="checkbox" data-bind="checked: settings.plugins.zbolt.parking_sensors" />
+            </div>
+        </div>
+
+		<h4>{{ _('Position X:') }}</h4>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span2">
+				Tool 1
+            </div>
+            <div class="span2">
+				Tool 2
+            </div>
+            <div class="span2">
+				Tool 3
+            </div>
+            <div class="span2">
+				Tool 4
+            </div>
+        </div>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.parking.t0_x" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.parking.t1_x" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.parking.t2_x" />
+                <span class="add-on">mm</span>
+            </div>
+            <div class="input-append span2">
+				<input type="number" step="any" class="input-mini text-right" data-bind="value: settings.plugins.zbolt.parking.t3_x" />
+                <span class="add-on">mm</span>
+            </div>
+        </div>
+	</fieldset>
+
+    <div id="zbolt_filament_settings">
+	<fieldset>
+		<legend>Filament Settings</legend>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('Use Sensors:') }}</label>
+            </div>
+            <div class="input span2">
+				<input type="checkbox" data-bind="checked: settings.plugins.zbolt.filament.sensors" />
+            </div>
+        </div>
+
+        <h4>{{ _('Reservations:') }}</h4>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('For extuder 1:') }}</label>
+            </div>
+            <div class="input span2">
+                <select id="octolapse_current_snapshot_camera"
+                    class="input-block-level"
+                    data-bind="
+                        options: ZBolt.toolsFor(0),
+                        optionsText: 'name',
+                        optionsValue: 'value',
+                        value: settings.plugins.zbolt.filament.reservation_t0">
+                </select>        
+            </div>
+        </div>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('For extuder 2:') }}</label>
+            </div>
+            <div class="input span2">
+                <select id="octolapse_current_snapshot_camera"
+                    class="input-block-level"
+                    data-bind="
+                        options: ZBolt.toolsFor(1),
+                        optionsText: 'name',
+                        optionsValue: 'value',
+                        value: settings.plugins.zbolt.filament.reservation_t1">
+                </select>        
+            </div>
+        </div>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('For extuder 3:') }}</label>
+            </div>
+            <div class="input span2">
+                <select id="octolapse_current_snapshot_camera"
+                    class="input-block-level"
+                    data-bind="
+                        options: ZBolt.toolsFor(2),
+                        optionsText: 'name',
+                        optionsValue: 'value',
+                        value: settings.plugins.zbolt.filament.reservation_t2">
+                </select>        
+            </div>
+        </div>
+		<div class="row-fluid" style="margin-bottom: 5px">
+            <div class="span3">
+                <label class="control-label">{{ _('For extuder 4:') }}</label>
+            </div>
+            <div class="input span2">
+                <select id="octolapse_current_snapshot_camera"
+                    class="input-block-level"
+                    data-bind="
+                        options: ZBolt.toolsFor(3),
+                        optionsText: 'name',
+                        optionsValue: 'value',
+                        value: settings.plugins.zbolt.filament.reservation_t3">
+                </select>        
+            </div>
+        </div>
+    </fieldset>
+    </div>
+</form>
