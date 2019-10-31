@@ -8,7 +8,7 @@ import socket
 
 from octoprint.events import Events
 from octoprint_zbolt_octoscreen.notifications import Notifications
-from octoprint_zbolt_octoscreen.settings import ZBoltSettings
+from octoprint_zbolt_octoscreen.settings import ZBoltOctoScreenSettings
 
 
 class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
@@ -22,7 +22,7 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
         Notifications.initialize(self._plugin_manager)
 
         self._logger.info("Z-Bolt Toolchanger init")
-        self.Settings = ZBoltSettings(self._settings)
+        self.Settings = ZBoltOctoScreenSettings(self._settings)
         
 
     def get_assets(self):
@@ -33,18 +33,13 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
         )
 
     def get_settings_defaults(self):
-         return ZBoltSettings.default_settings()
+         return ZBoltOctoScreenSettings.default_settings()
 
     def get_api_commands(self):
         return dict(
-            get_notification=[]
+            get_notification=[],
+            get_settings=[]
         )
-
-    # def on_event(self, event, payload):
-    #     if event is Events.CONNECTED:
-    #         self._logger.info("Connecting2:")
-            # n = self._plugin_manager.get_plugin('zbolt_octoscreen').Notifications
-            # self.send_message({"title": "test221", "text": "asfdsaf23asdfaefsdf"})
 
     def on_settings_save(self, data):
         octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
@@ -52,6 +47,8 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
     def on_api_command(self, command, data):
         if command == "get_notification":
             return flask.jsonify(message = Notifications.get_message_to_display())
+        elif command == "get_settings": 
+            return flask.jsonify(self.Settings.get_all())
 
     def on_api_get(self, request):
         return flask.jsonify(printer_name="test2")
@@ -66,7 +63,7 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
     ##~~ Softwareupdate hook
     def get_update_information(self):
         return dict(
-        zbolt=dict(
+        zbolt_octoscreen=dict(
             displayName = "Z-Bolt OctoScreen",
             displayVersion = self._plugin_version,
 

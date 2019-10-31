@@ -1,10 +1,12 @@
-$(function() {
-    ZBolt.StateViewModel = function(parameters) {
+var ZBoltOctoScreen = {}
+
+$(function () {
+    ZBoltOctoScreen.StateViewModel = function (parameters) {
         var self = this;
-        
+
         self.printerStateViewModel = parameters[0];
 
-        self.printerStateViewModel.stateString.subscribe(function(p){
+        self.printerStateViewModel.stateString.subscribe(function (p) {
             var s = $('#state_wrapper');
 
             if (p == 'Printing') {
@@ -14,16 +16,7 @@ $(function() {
             }
         });
 
-        self.onAfterBinding = function() {
-        }
-
-        self.onAfterBinding = function() {
-            // new PNotify({
-            //     title: gettext("Something went wrong"),
-            //     text: gettext("Please consult octoprint.log for details"),
-            //     type: "error",
-            //     hide: false
-            // });
+        self.onAfterBinding = function () {
         }
 
         // Handle Plugin Messages from Server
@@ -32,56 +25,31 @@ $(function() {
                 return;
             }
 
-            console.log("From ZBolt")
-            console.log(plugin)
-            console.log(data)
-
-
             new PNotify({
                 title: data.title,
                 text: data.text,
                 type: "error",
                 hide: false
             });
-
-            // switch (data.type) {
-            //     case "filament-over":{
-            //         //console.log('octolapse.js - render-failed');
-            //         self.updateState(data);
-            //         var options = {
-            //             title: 'Octolapse Rendering Failed',
-            //             text: data.msg,
-            //             type: 'error',
-            //             hide: false,
-            //             addclass: "zbolt",
-            //             desktop: {
-            //                 desktop: true
-            //             }
-            //         };
-            //         // Octolapse.displayPopup(options);
-            //         new PNotify(options);
-            //         break;
-            //     }
-            // }
         }
     }
 
     OCTOPRINT_VIEWMODELS.push({
-        construct: ZBolt.StateViewModel,
+        construct: ZBoltOctoScreen.StateViewModel,
         dependencies: ["printerStateViewModel"]
     });
 
-    ZBolt.ConnectionViewModel = function(parameters) {
+    ZBoltOctoScreen.ConnectionViewModel = function (parameters) {
         var self = this;
 
-        self.onAfterBinding = function() {
+        self.onAfterBinding = function () {
             var connection = $("#sidebar_plugin_klipper");
             connection.collapse("hide");
-         }
+        }
     }
 
     OCTOPRINT_VIEWMODELS.push({
-        construct: ZBolt.ConnectionViewModel,
+        construct: ZBoltOctoScreen.ConnectionViewModel,
         dependencies: ["connectionViewModel"]
     });
 
