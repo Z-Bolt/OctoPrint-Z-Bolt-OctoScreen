@@ -6,8 +6,8 @@ Plugin Provides settings management for [OctoScreen](https://github.com/Z-Bolt/O
 
 ## Setup
 
-Install via the bundled [Plugin Manager](https://plugins.octoprint.org/help/installation/)
-or manually using this URL:
+Install manually via the bundled [Plugin Manager](https://plugins.octoprint.org/help/installation/)
+using this URL:
 
     https://github.com/Z-Bolt/OctoPrint-Z-Bolt-OctoScreen/archive/master.zip
 
