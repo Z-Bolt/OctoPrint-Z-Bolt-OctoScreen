@@ -20,8 +20,6 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
 
     def initialize(self):
         Notifications.initialize(self._plugin_manager)
-
-        self._logger.info("Z-Bolt Toolchanger init")
         self.Settings = ZBoltOctoScreenSettings(self._settings)
         
 

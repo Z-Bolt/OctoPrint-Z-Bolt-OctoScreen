@@ -6,6 +6,8 @@ class NotificationsStorage:
             "time": time(),
             "text": "Wake up, Neo...\nThe Matrix has you...\nFollow the white rabbit.\n\n\nKnock, Knock, Neo."
         }
+
+        self._message = None
         self._plugin_manager = plugin_manager
 
     def send_message(self, message):
