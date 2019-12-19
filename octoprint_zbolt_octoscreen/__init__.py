@@ -33,6 +33,9 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
     def get_settings_defaults(self):
          return ZBoltOctoScreenSettings.default_settings()
 
+    def get_template_vars(self):
+        return ZBoltOctoScreenSettings.template_vars()
+
     def get_api_commands(self):
         return dict(
             get_notification=[],
