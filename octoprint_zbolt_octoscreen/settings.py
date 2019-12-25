@@ -80,11 +80,12 @@ default_menu_structure = """[
     }
 ]"""
 
+
 class ZBoltOctoScreenSettings(object):
     def __init__(self, settings):
         self._settings = settings
         self.default_menu_structure = default_menu_structure
-    
+
     def get_all(self):
         return {
             "filament_in_length": float(self._settings.get(["filament_in_length"])),
@@ -92,7 +93,7 @@ class ZBoltOctoScreenSettings(object):
             "gcodes": self._settings.get(["gcodes"]),
             "toolchanger": bool(self._settings.get(["toolchanger"])),
             "z_axis_inverted": bool(self._settings.get(["z_axis_inverted"])),
-            "menu_structure": json.loads(self._settings.get(["menu_structure"]))
+            "menu_structure": json.loads(self._settings.get(["menu_structure"])),
         }
 
     @staticmethod
@@ -102,14 +103,11 @@ class ZBoltOctoScreenSettings(object):
             filament_out_length=800,
             toolchanger=False,
             z_axis_inverted=True,
-            gcodes = dict(
-                auto_bed_level="G29"
-            ),
-            menu_structure = default_menu_structure
+            gcodes=dict(auto_bed_level="G29"),
+            menu_structure=default_menu_structure,
         )
 
     @staticmethod
     def template_vars():
-        return dict(
-            default_menu_structure = default_menu_structure
-        )
+        return dict(default_menu_structure=default_menu_structure)
+
