@@ -9,7 +9,7 @@ $(function () {
         self.printerStateViewModel.stateString.subscribe(function (p) {
             var s = $('#state_wrapper');
 
-            if (p == 'Printing') {
+            if (p === 'Printing') {
                 s.addClass('printing')
             } else {
                 s.removeClass('printing')
@@ -52,7 +52,6 @@ $(function () {
         construct: ZBoltOctoScreen.ConnectionViewModel,
         dependencies: ["connectionViewModel"]
     });
-
 });
 
 
