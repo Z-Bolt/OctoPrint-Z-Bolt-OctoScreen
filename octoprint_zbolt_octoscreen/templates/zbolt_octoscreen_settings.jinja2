@@ -45,6 +45,20 @@
                 <h4>{{ _('Other:') }}</h4>
 
                 <div class="control-group">
+                    <label class="control-label">{{ _('Invert X axis buttons on move screen:') }}</label>
+                    <div class="controls">
+                        <input type="checkbox" data-bind="checked: settings.plugins.zbolt_octoscreen.x_axis_inverted" />
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">{{ _('Invert Y axis buttons on move screen:') }}</label>
+                    <div class="controls">
+                        <input type="checkbox" data-bind="checked: settings.plugins.zbolt_octoscreen.y_axis_inverted" />
+                    </div>
+                </div>
+
+                <div class="control-group">
                     <label class="control-label">{{ _('Invert Z axis buttons on move screen:') }}</label>
                     <div class="controls">
                         <input type="checkbox" data-bind="checked: settings.plugins.zbolt_octoscreen.z_axis_inverted" />
