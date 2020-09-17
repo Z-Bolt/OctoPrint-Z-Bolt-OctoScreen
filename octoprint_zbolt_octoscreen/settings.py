@@ -92,6 +92,8 @@ class ZBoltOctoScreenSettings(object):
             "filament_out_length": float(self._settings.get(["filament_out_length"])),
             "gcodes": self._settings.get(["gcodes"]),
             "toolchanger": bool(self._settings.get(["toolchanger"])),
+            "x_axis_inverted": bool(self._settings.get(["x_axis_inverted"])),
+            "y_axis_inverted": bool(self._settings.get(["y_axis_inverted"])),
             "z_axis_inverted": bool(self._settings.get(["z_axis_inverted"])),
             "menu_structure": json.loads(self._settings.get(["menu_structure"])),
         }
@@ -102,6 +104,8 @@ class ZBoltOctoScreenSettings(object):
             filament_in_length=750,
             filament_out_length=800,
             toolchanger=False,
+            x_axis_inverted=False,
+            y_axis_inverted=False,
             z_axis_inverted=True,
             gcodes=dict(auto_bed_level="G29"),
             menu_structure=default_menu_structure,
