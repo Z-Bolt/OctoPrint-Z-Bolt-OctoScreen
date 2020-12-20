@@ -21,7 +21,6 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
     def initialize(self):
         Notifications.initialize(self._plugin_manager)
         self.Settings = ZBoltOctoScreenSettings(self._settings)
-        
 
     def get_assets(self):
         return dict(
@@ -31,7 +30,7 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
         )
 
     def get_settings_defaults(self):
-         return ZBoltOctoScreenSettings.default_settings()
+        return ZBoltOctoScreenSettings.default_settings()
 
     def get_template_vars(self):
         return ZBoltOctoScreenSettings.template_vars()
@@ -46,34 +45,44 @@ class ZBoltOctoScreenPlugin(octoprint.plugin.SettingsPlugin,
         octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
 
     def on_api_command(self, command, data):
+        # Warning! get_notification and get_settings have been moved.
+        # They are no longer POST operations and are now GET operations.
+        # This code will remain here for a few release but will eventually
+        # be deprecated.
         if command == "get_notification":
             return flask.jsonify(message = Notifications.get_message_to_display())
-        elif command == "get_settings": 
+        elif command == "get_settings":
             return flask.jsonify(self.Settings.get_all())
 
     def on_api_get(self, request):
-        return flask.jsonify(printer_name="test2")
-
+        if len(request.values) != 0:
+            command = request.values["command"]
+            if command == "get_notification":
+                msg = Notifications.get_message_to_display()
+                if msg is None:
+                    msg = ""
+                return flask.jsonify(message = msg)
+            elif command == "get_settings":
+                return flask.jsonify(self.Settings.get_all())
 
     def get_template_configs(self):
         return [
             dict(type="settings", name="Z-Bolt OctoScreen", custom_bindings=False),
         ]
 
-
     ##~~ Softwareupdate hook
     def get_update_information(self):
         return dict(
-        zbolt_octoscreen=dict(
-            displayName = "Z-Bolt OctoScreen",
-            displayVersion = self._plugin_version,
+            zbolt_octoscreen = dict(
+                displayName = "Z-Bolt OctoScreen",
+                displayVersion = self._plugin_version,
 
-            type="github_release",
-            user="Z-Bolt",
-            repo="OctoPrint-Z-Bolt-OctoScreen",
-            current=self._plugin_version,
+                type = "github_release",
+                user = "Z-Bolt",
+                repo = "OctoPrint-Z-Bolt-OctoScreen",
+                current = self._plugin_version,
 
-            pip="https://github.com/Z-Bolt/OctoPrint-Z-Bolt-OctoScreen/archive/{target_version}.zip"
+                pip = "https://github.com/Z-Bolt/OctoPrint-Z-Bolt-OctoScreen/archive/{target_version}.zip"
             )
         )
 
@@ -82,7 +91,7 @@ __plugin_name__ = "Z-Bolt OctoScreen"
 __plugin_pythoncompat__ = ">=2.7,<4"
 
 def __plugin_load__():
-    global __plugin_implementation__    
+    global __plugin_implementation__
     __plugin_implementation__ = ZBoltOctoScreenPlugin()
 
     global __plugin_hooks__
