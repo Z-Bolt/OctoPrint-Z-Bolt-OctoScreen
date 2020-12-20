@@ -22,7 +22,6 @@ class NotificationsStorage:
         payload['text'] = message['text']
         self._plugin_manager.send_plugin_message("zbolt_octoscreen", payload)
 
-
     def get_message_to_display(self):
         if not self._message:
             return None
@@ -32,7 +31,3 @@ class NotificationsStorage:
         return m
 
 Notifications = NotificationsStorage()
-        
-
-
-
