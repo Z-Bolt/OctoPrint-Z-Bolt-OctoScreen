@@ -85,6 +85,15 @@ class ZBoltOctoScreenSettings(object):
         self.default_menu_structure = default_menu_structure
 
     def get_all(self):
+        json_menu_structure = None
+        try:
+            menu_structure = self._settings.get(["menu_structure"])
+            if menu_structure is None or menu_structure == "":
+                menu_structure = "[]"
+            json_menu_structure = json.loads(menu_structure)
+        except:
+            json_menu_structure = []
+
         return {
             "filament_in_length": float(self._settings.get(["filament_in_length"])),
             "filament_out_length": float(self._settings.get(["filament_out_length"])),
@@ -93,7 +102,7 @@ class ZBoltOctoScreenSettings(object):
             "x_axis_inverted": bool(self._settings.get(["x_axis_inverted"])),
             "y_axis_inverted": bool(self._settings.get(["y_axis_inverted"])),
             "z_axis_inverted": bool(self._settings.get(["z_axis_inverted"])),
-            "menu_structure": json.loads(self._settings.get(["menu_structure"])),
+            "menu_structure": json_menu_structure,
         }
 
     @staticmethod
