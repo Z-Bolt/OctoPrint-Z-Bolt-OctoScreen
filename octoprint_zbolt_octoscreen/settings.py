@@ -108,16 +108,16 @@ class ZBoltOctoScreenSettings(object):
     @staticmethod
     def default_settings():
         return dict(
-            filament_in_length=750,
-            filament_out_length=800,
-            toolchanger=False,
-            x_axis_inverted=False,
-            y_axis_inverted=False,
-            z_axis_inverted=True,
-            gcodes=dict(auto_bed_level="G29"),
+            filament_in_length = 750,
+            filament_out_length = 800,
+            toolchanger = False,
+            x_axis_inverted = False,
+            y_axis_inverted = False,
+            z_axis_inverted = False,
+            gcodes=dict(auto_bed_level = "G29"),
             menu_structure=default_menu_structure,
         )
 
     @staticmethod
     def template_vars():
-        return dict(default_menu_structure=default_menu_structure)
+        return dict(default_menu_structure = default_menu_structure)
