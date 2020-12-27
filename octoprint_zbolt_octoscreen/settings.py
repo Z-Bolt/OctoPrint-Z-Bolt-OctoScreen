@@ -18,9 +18,9 @@ default_menu_structure = """[
                 "panel": "move"
             },
             {
-                "name": "Extrude",
-                "icon": "filament",
-                "panel": "extrude_multitool"
+                "name": "Filament",
+                "icon": "filament-spool",
+                "panel": "filament"
             },
             {
                 "name": "Fan",
@@ -36,18 +36,13 @@ default_menu_structure = """[
                 "name": "Control",
                 "icon": "control",
                 "panel": "control"
-            },
-            {
-                "name": "ToolChanger",
-                "icon": "toolchanger",
-                "panel": "toolchanger"
             }
         ]
     },
     {
         "name": "Filament",
-        "icon": "filament",
-        "panel": "filament_multitool"
+        "icon": "filament-spool",
+        "panel": "filament"
     },
     {
         "name": "Configuration",
